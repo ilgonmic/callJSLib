@@ -1,10 +1,13 @@
 package de.validate.kafka
 
 fun createConsumer(): dynamic {
-    val options: ConsumerOptions = js("({})")
-    options.groupID = "test-group"
-    return Kafka.consumer(options)
+    val options: KafkaConfig = js("({})")
+    val consumerOptions: ConsumerConfig = js("({})")
+    consumerOptions.groupId = "test-group"
+    return Kafka(options).consumer(consumerOptions)
 }
+
 fun createProducer(): dynamic {
-    return Kafka.producer()
+    val options: KafkaConfig = js("({})")
+    return Kafka(options).producer()
 }

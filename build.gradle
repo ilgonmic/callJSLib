@@ -1,0 +1,50 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.4.0'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.0'
+}
+group = 'de.validate'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+kotlin {
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = '1.8'
+        }
+    }
+    js('nodeJs') {
+        useCommonJs()
+        nodejs {
+            
+        }
+    }
+    sourceSets {
+        commonMain {
+
+        }
+        commonTest {
+            dependencies {
+                implementation kotlin('test-common')
+                implementation kotlin('test-annotations-common')
+            }
+        }
+        jvmMain {
+
+        }
+        jvmTest {
+            dependencies {
+                implementation kotlin('test-junit')
+            }
+        }
+        nodeJsMain {
+            dependencies {
+                implementation (npm( "kafkajs", "^1.12.0"))
+            }
+        }
+        nodeJsTest {
+
+        }
+    }
+}

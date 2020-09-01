@@ -1,0 +1,14 @@
+{
+  "name": "calljslib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "myKafkaCall.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "myKafka": "file:./build/js"
+  },
+  "author": "",
+  "license": "ISC"
+}
